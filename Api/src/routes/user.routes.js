@@ -1,5 +1,5 @@
 const express = require("express");
-const {createUser} = require("../studyCases/userCase");
+const {createUser,listarUsers} = require("../studyCases/userCase");
 const router = express.Router();
 
 
@@ -16,6 +16,23 @@ router.post("/",async(req,res)=>{
         res.status(500).json(err)
     }
 })
+
+///list Users
+router.get("/", async (req, res) => {
+    try {
+      const users = await listarUsers();
+      res.json({
+        success: true,
+        data: users
+      })
+    }catch(err) {
+      res.status(400);
+      res.json({
+        success: false,
+        message: err.users
+      })
+    }
+  })
 
 
 module.exports = router;

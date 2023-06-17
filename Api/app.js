@@ -1,4 +1,4 @@
-require('dotenv').config() // lo mas pronto de nuestra aplicacion;
+require('dotenv').config() 
 const mongoose = require("mongoose");
 const appServer =require("./src/server")
 /**

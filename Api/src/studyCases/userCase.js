@@ -1,6 +1,6 @@
 const User = require("../Models/User.model");
 ////enlistar Users
-const list = () => {
+const listarUsers = () => {
     // Accion -> use case;
     const users = User.find();
     return users;
@@ -11,8 +11,9 @@ const list = () => {
     const Newuser = User.create(data);
     return Newuser;
 }
-  
 
 
 
-  module.exports = { list,createUser} 
+
+
+  module.exports = { listarUsers,createUser} 
