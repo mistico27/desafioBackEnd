@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const UsersChema = new mongoose.Schema({
     username:{
         type:String,
-        require:true,
+        required:true,
         min:10,
         max:20,
         unique:true
@@ -35,6 +35,7 @@ const UsersChema = new mongoose.Schema({
         type:Array,
         default:[],
     },
+
     desc:{
         type:String,
         max:50,
@@ -48,4 +49,4 @@ const UsersChema = new mongoose.Schema({
 );
 
 
-module.exports=mongoose.model("user",UsersChema,"user");
+module.exports=mongoose.model("userDesafio",UsersChema,"userDesafio");
