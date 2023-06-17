@@ -5,7 +5,6 @@ const UsersChema = new mongoose.Schema({
         required:true,
         min:10,
         max:20,
-        unique:true
     },
     age: {
         type: Number,
@@ -13,10 +12,10 @@ const UsersChema = new mongoose.Schema({
         max: 100
       },
     email:{
-        type:String,
+        type: String,
+        match:/^.*@.*\..*$/,
         required:true,
-        max:50,
-        unique:true
+        unique:true,
     },
     password:{
         type:String,

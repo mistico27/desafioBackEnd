@@ -12,7 +12,4 @@ const listarUsers = () => {
 }
 
 
-
-
-
   module.exports = { listarUsers,createUser} 
