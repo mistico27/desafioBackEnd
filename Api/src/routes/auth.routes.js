@@ -1,5 +1,6 @@
 const express = require("express");
-const {loginSignUp,createRegister} = require("../studyCases/AuthCases");
+const {loginSignUp} = require("../studyCases/AuthCases");
+const {createUser}=require("../studyCases/userCase")
 const {auth}= require("../middlewares/Auth.middleware");
 
 const router = express.Router();

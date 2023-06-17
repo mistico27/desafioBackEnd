@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const UsersChema = new mongoose.Schema({
     username:{
-        type:String,
-        required:true,
-        min:10,
-        max:20,
+        type: String,
+        minlength: 3,
+        maxlength: 20,
+        required: true,
     },
     age: {
         type: Number,
@@ -19,8 +19,9 @@ const UsersChema = new mongoose.Schema({
     },
     password:{
         type:String,
+        minlength: 10,
+        maxlength: 100,
         required:true,
-        min:6
     },
     profilePicture:{
         type:String,
@@ -34,7 +35,6 @@ const UsersChema = new mongoose.Schema({
         type:Array,
         default:[],
     },
-
     desc:{
         type:String,
         max:50,

@@ -1,24 +1,18 @@
 const express = require("express");
-const {createUser,listarUsers} = require("../studyCases/userCase");
+const {createRegister,listarUsers} = require("../studyCases/userCase");
 const router = express.Router();
 
 ///create user
 router.post("/",async(req,res)=>{
-    try{
-        const user = await createUser(req.body)
-        res.status(200)
-        res.json({
-            success: true,
-            data: user
-          })
-    }catch(err){
-      res.status(500);
-      res.json({
-        success: false,
-        message: err.users
-      })
-    }
-})
+
+  try{
+    const userCosntruido = await createRegister(req.body);
+    res.status(200).json(userCosntruido);
+  }catch(e){
+      res.status(500).json(e)
+  }
+  });
+  
 
 ///list Users
 router.get("/", async (req, res) => {

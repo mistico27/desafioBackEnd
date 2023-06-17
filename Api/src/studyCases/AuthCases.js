@@ -1,20 +1,9 @@
 const User = require("../Models/User.model");
 const bcrypt = require('bcrypt');
 const createError = require("http-errors")
-const saltRounds = 10;
 const jwt =require("../lib/jwt/jwt.lib")
 
-
-///crear usuario
-const createRegister =async(data)=>{
-    let passwordEncryptada = await bcrypt.hash(data.password, saltRounds);
-     data.password=passwordEncryptada;
-     const user = await User.create(data);
-     return user;
- }
-
-
- ///login
+///login
 const loginSignUp =async(email,password)=>{
     const userFound = await User.findOne({email})
     const isValidPassword= await bcrypt.compare(password, userFound.password)
@@ -32,4 +21,4 @@ const loginSignUp =async(email,password)=>{
 
 
 
-module.exports = { createRegister,loginSignUp}
+module.exports = {loginSignUp}
