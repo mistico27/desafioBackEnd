@@ -7,13 +7,18 @@ router.post("/",async(req,res)=>{
 
   try{
     const userCosntruido = await createRegister(req.body);
-    res.status(200).json(userCosntruido);
+    res.json({
+      success: true,
+      data: userCosntruido
+    })
   }catch(e){
       res.status(500).json(e)
   }
   });
   
 
+
+  
 ///list Users
 router.get("/", async (req, res) => {
     try {

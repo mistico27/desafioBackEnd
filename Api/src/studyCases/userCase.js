@@ -16,7 +16,22 @@ const createRegister =async(data)=>{
      return user;
  }
 
+ const loginSignUp =async(email,password)=>{
+  const userFound = await User.findOne({email})
+  console.log(userFound);
+  const isValidPassword= await bcrypt.compare(password, userFound.password)
+  if(!userFound){
+      throw createError(400, "Invalid data");
+  }
+  if(!isValidPassword){
+      throw createError(400, "Invalid data");
+  }
+  ///este viene de la librearia jwt.lib.js
+  const token = jwt.sign({user: userFound.email, id:userFound._id })
+  console.log(token);
+  return token;
+}
 
 
 
-  module.exports = {listarUsers,createRegister} 
+  module.exports = {listarUsers,createRegister,loginSignUp} 

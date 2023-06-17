@@ -16,8 +16,7 @@ const auth =(req,res,next)=>{
     if(isVerified){
         verified=true;
         console.log("is verified???", verified);
-    }
-    
+    }    
         next();
     }catch(e){
         res.status(400);

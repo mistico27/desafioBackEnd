@@ -1,6 +1,6 @@
 const express = require("express");
 const {loginSignUp} = require("../studyCases/AuthCases");
-const {createUser}=require("../studyCases/userCase")
+const {listarUsers}=require("../studyCases/userCase")
 const {auth}= require("../middlewares/Auth.middleware");
 
 const router = express.Router();
@@ -25,7 +25,7 @@ router.post("/",async(req,res)=>{
 
 router.get("/",async(req,res)=>{
         try{ 
-        const users =await list(req.params)
+        const users =await listarUsers(req.params)
           res.json({
             success:true,
             data:users
@@ -39,6 +39,7 @@ router.get("/",async(req,res)=>{
         } 
         })
         
+///get Id        
 router.get("/:id",auth,async(req,res)=>{
           try{ 
           const users =await get(req.params.id);

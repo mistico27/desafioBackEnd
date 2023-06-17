@@ -6,6 +6,7 @@ const jwt =require("../lib/jwt/jwt.lib")
 ///login
 const loginSignUp =async(email,password)=>{
     const userFound = await User.findOne({email})
+    console.log("hey soy user Fpound",userFound);
     const isValidPassword= await bcrypt.compare(password, userFound.password)
     if(!userFound){
         throw createError(400, "Invalid data");
