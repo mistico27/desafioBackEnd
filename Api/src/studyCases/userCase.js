@@ -1,7 +1,6 @@
 const User = require("../Models/User.model");
 ////enlistar Users
 const listarUsers = () => {
-    // Accion -> use case;
     const users = User.find();
     return users;
   

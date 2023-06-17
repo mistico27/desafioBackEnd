@@ -2,7 +2,6 @@ const express = require("express");
 const {createUser,listarUsers} = require("../studyCases/userCase");
 const router = express.Router();
 
-
 ///create user
 router.post("/",async(req,res)=>{
     try{
@@ -13,7 +12,11 @@ router.post("/",async(req,res)=>{
             data: user
           })
     }catch(err){
-        res.status(500).json(err)
+      res.status(500);
+      res.json({
+        success: false,
+        message: err.users
+      })
     }
 })
 
