@@ -12,7 +12,7 @@ const databaseURL =`mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_
 mongoose.connect(databaseURL)
 .then(() => {
   console.log("estamos conectados a mongo!!!!");
-  appServer.listen(8800,()=>{
+  appServer.listen(8080,()=>{
     console.log("BackEnd server is ready and running   !!!!");
   })
 })
