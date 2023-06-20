@@ -49,11 +49,8 @@ fetch(`${baseURL}/posts`)
       let ViewDetailText =document.createTextNode("Detalle");
       detailButton.append(ViewDetailText);
       detailButton.addEventListener("click",()=>{
-    //window.location.replace(`./detailedView.html?postCardId=${postCardkey}`);
-    ///console.log("hey aqui esta el detalle");
-    ////crear un fethc conn un metodo get; usar esta ruta del insomnia
-    ///http://localhost:8800/posts/:myid
-    window.location.replace("/front/detailview/index.html");
+
+    window.location.replace(`/front/detailview/index.html?postCardId=${post._id}`);
     });
 
       userCardContainer.append(card);
