@@ -16,5 +16,10 @@ const getPostbyId = (id) => {
     return postFounded;
   }
 
+//deletePost
+const deletePost = async (id) => {
+  const postToDelete = await Post.findByIdAndDelete(id);
+}
+
   
-  module.exports = { listarPost,createPost,getPostbyId} 
+  module.exports = { listarPost,createPost,getPostbyId,deletePost} 

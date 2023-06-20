@@ -1,5 +1,7 @@
 const express = require("express");
-const {listarPost,createPost,getPostbyId} = require("../studyCases/postCase");
+const {listarPost,createPost,getPostbyId,deletePost} = require("../studyCases/postCase");
+const authDelete =require("../middlewares/DeleteAuth.middleware");
+
 const router = express.Router();
 
 
@@ -50,6 +52,24 @@ router.get("/:id", async (req, res) => {
     res.json({
       success: true,
       data: newPost
+    })
+  } catch (err) {
+    res.status(err.status || 500);
+    res.json({
+      success: false,
+      message: err.message
+    })
+  }
+})
+
+///eliminar Post
+
+router.delete("/:id",authDelete ,async (req, res) => {
+  try {
+    const post = await deletePost(req.params.id);
+    res.json({
+      success: true,
+      message:"post Eliminado exitosamente"
     })
   } catch (err) {
     res.status(err.status || 500);
