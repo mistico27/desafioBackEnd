@@ -39,6 +39,8 @@ fetch(`${baseURL}/posts`)
         console.log("hey soy el que modifica");
         ///vas a hacer un fetch con metodo put  y va s a aplicar el el update con esa ruta insomnia:
         ///http://localhost:8800/posts/648df3d5a9707ed4b2e428da
+        ///datos guradados
+        window.location.replace("/front/form/index.html");
     });
 
       ///aqui va el detalle
@@ -51,6 +53,7 @@ fetch(`${baseURL}/posts`)
     ///console.log("hey aqui esta el detalle");
     ////crear un fethc conn un metodo get; usar esta ruta del insomnia
     ///http://localhost:8800/posts/:myid
+    window.location.replace("/front/detailview/index.html");
     });
 
       userCardContainer.append(card);

@@ -1,8 +1,6 @@
 const express = require("express");
 const {listarPost,createPost,getPostbyId,deletePost,updatePost} = require("../studyCases/postCase");
-const authDelete =require("../middlewares/DeleteAuth.middleware");
 const auth=require("../middlewares/Auth.middleware");
-const Post = require("../Models/Post.model");
 
 
 const router = express.Router();
@@ -67,7 +65,7 @@ router.get("/:id", async (req, res) => {
 
 ///eliminar Post
 
-router.delete("/:id",authDelete ,async (req, res) => {
+router.delete("/:id",auth ,async (req, res) => {
   try {
     const post = await deletePost(req.params.id);
     res.json({
