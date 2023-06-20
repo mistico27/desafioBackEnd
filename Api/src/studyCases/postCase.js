@@ -21,5 +21,10 @@ const deletePost = async (id) => {
   const postToDelete = await Post.findByIdAndDelete(id);
 }
 
+const updatePost =async(id,data)=>{
+  const updatedPost = await Post.findByIdAndUpdate(id, data, { returnDocument: "after" })
+  return updatedPost;
+}
+
   
-  module.exports = { listarPost,createPost,getPostbyId,deletePost} 
+  module.exports = { listarPost,createPost,getPostbyId,deletePost,updatePost} 
