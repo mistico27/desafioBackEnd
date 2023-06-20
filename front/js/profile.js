@@ -22,9 +22,7 @@ fetch(`${baseURL}/posts`)
       deleteButton.append(deleteText);
       deleteButton.addEventListener("click",()=>{
         console.log("hey aqui delete ");
-        ////aqui va Luigi
-        //vas a crear un fetch pero con post para delete
-        //con la ruta del insomnia
+        ///
         ///http://localhost:8800/posts/648df3d5a9707ed4b2e428da 
 
     });
@@ -35,12 +33,10 @@ fetch(`${baseURL}/posts`)
     let modifiedText =document.createTextNode("Modificar");
     modifiedButton.append(modifiedText);
     modifiedButton.addEventListener("click",()=>{
-    //window.location.replace(`./form.html?postCardId=${postCardkey}`);
-        console.log("hey soy el que modifica");
-        ///vas a hacer un fetch con metodo put  y va s a aplicar el el update con esa ruta insomnia:
-        ///http://localhost:8800/posts/648df3d5a9707ed4b2e428da
-        ///datos guradados
-        window.location.replace("/front/form/index.html");
+    
+
+        window.location.replace(`/front/form/index.html?postCardId=${post._id}`);
+
     });
 
       ///aqui va el detalle
