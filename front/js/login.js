@@ -1,9 +1,10 @@
 console.log("hey como andan Estamos en el archivo de login");
 const baseURL = "http://localhost:8800";
-const btnIniciarSesion = document.querySelector("#iniciar-sesion-btn");
+const btnIniciarSesion = document.getElementById("iniciar-sesion-btn");
 console.log("btn", btnIniciarSesion)
 
 btnIniciarSesion.addEventListener("click", async (e) => {
+  e.preventDefault();
   console.log("estamos haciendo click");
 
   const emailValue = document.querySelector("#email").value;
@@ -27,4 +28,5 @@ btnIniciarSesion.addEventListener("click", async (e) => {
  localStorage.setItem("token", data.token);
  window.location.replace("/front/profile/index.html");
   console.log("DATA DEL BACKEND", data);
+
 })
