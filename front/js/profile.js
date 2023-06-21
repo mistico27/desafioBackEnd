@@ -3,6 +3,8 @@ const userCardTemplate = document.querySelector("[data-user-template]")
 const userCardContainer = document.querySelector("[data-user-cards-container]")
 const userSearchInput = document.querySelector("[data-search]")
 const baseURL = "http://localhost:8800";
+const getMytoken = localStorage.getItem("token");
+
 
 fetch(`${baseURL}/posts`)
   .then(res => res.json())
@@ -20,12 +22,25 @@ fetch(`${baseURL}/posts`)
       deleteButton.classList.add("btn","btn-danger");
       let deleteText =document.createTextNode("borrar");
       deleteButton.append(deleteText);
-      deleteButton.addEventListener("click",()=>{
-        console.log("hey aqui delete ");
-        ///
-        ///http://localhost:8800/posts/648df3d5a9707ed4b2e428da 
-
+      deleteButton.addEventListener("click",(e)=>{
+        e.preventDefault();
+        console.log("hey que onda");
+        deletePostCard();
+        window.location.replace("/front/profile/index.html");
     });
+    console.log(post._id);
+    const deletePostCard =async()=>{
+      let response = await fetch(`${baseURL}/posts/${post._id}`,{
+        method:'DELETE',
+        headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}`},
+        body: JSON.stringify(body)
+      });
+      let data= await response.json();
+       return data; 
+        
+    }
+
+
 
       //funcion para editar
     let modifiedButton =document.createElement("button");
