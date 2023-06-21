@@ -39,8 +39,8 @@ const printCard = async() => {
 
     let backButton = document.getElementById("backButton")
     backButton.addEventListener('click', (event) => {
-    window.location.replace("./Index.html");
-})
+      window.location.replace("/front/profile/index.html");
+    })
 }
 
 
