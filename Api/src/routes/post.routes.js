@@ -1,5 +1,5 @@
 const express = require("express");
-const {listarPost,createPost,getPostbyId,deletePost,updatePost} = require("../studyCases/postCase");
+const {listarPost,createPost,getPostbyId,deletePost,updatePost} = require("../useCases/postCase");
 const auth=require("../middlewares/Auth.middleware");
 
 

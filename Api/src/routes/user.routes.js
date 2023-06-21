@@ -1,5 +1,5 @@
 const express = require("express");
-const {createRegister,listarUsers,getUser} = require("../studyCases/userCase");
+const {createRegister,listarUsers,getUser} = require("../useCases/userCase");
 const auth =require("../middlewares/Auth.middleware");
 const router = express.Router();
 

@@ -79,11 +79,11 @@ document.getElementById('save-card').addEventListener("click",async(event)=>{
       postObject[item.name]=item.value;
     });
     let response = await savePostCard(postObject,postCardId);
-    /*if(response){
+    if(response){
       window.location.replace(`/front/profile/index.html`);
       //print the ´postCards
     }
-    */
+    
   postCardId=null;
   cleanForm();
   
